@@ -5,8 +5,9 @@ public class ScoreBoard {
             @Override
             public void run() {
                 for (int i = 0; i < 100; i++) {
-                    System.out.println(TotalScore.getInsance().getsCore());
+
                     TotalScore.getInsance().addToscore(1);
+                    System.out.println("Java Score -> " + TotalScore.getInsance().getsCore());
                 }
             }
         });
@@ -15,8 +16,9 @@ public class ScoreBoard {
             @Override
             public void run() {
                 for (int i = 0; i < 100; i++) {
-                    System.out.println(TotalScore.getInsance().getsCore());
+
                     TotalScore.getInsance().addToscore(1);
+                    System.out.println("Java Score -> " +TotalScore.getInsance().getsCore());
                 }
             }
         });
@@ -25,7 +27,30 @@ public class ScoreBoard {
         t1.run();
         t2.run();
 
+        Thread t3 = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                for (int i = 0; i < 100; i++) {
+                    KotlinScore.INSTANCE.addScore(1);
+                    System.out.println("Kotlin Score -> " +KotlinScore.INSTANCE.getTotalScore());
+                }
+            }
+        });
 
+        Thread t4 = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                for (int i = 0; i < 100; i++) {
+
+                    KotlinScore.INSTANCE.addScore(1);
+                    System.out.println("Kotlin Score -> " +KotlinScore.INSTANCE.getTotalScore());
+                }
+            }
+        });
+
+
+        t3.run();
+        t4.run();
 
     }
 }

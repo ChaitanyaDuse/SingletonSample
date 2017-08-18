@@ -7,4 +7,7 @@ Plan to take care of reinitialization and/or return of stale values of the Singl
 
 Study article http://www.oracle.com/technetwork/articles/java/singleton-1577166.html
 
+
+I have also added a Parallel implementation of a Singleton in Kotlin.
+
 Please do comment/fork/email if have any suggestions or advice
