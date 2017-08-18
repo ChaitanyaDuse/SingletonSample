@@ -1,6 +1,6 @@
 
 public class TotalScore {
-    private int mTotalScore;
+    private volatile int mTotalScore;
     private static TotalScore sTotalScore = new TotalScore();
 
     private TotalScore() {
@@ -14,11 +14,11 @@ public class TotalScore {
         return sTotalScore;
     }
 
-    public void addToscore(int scoreToadd) {
+    public synchronized void  addToscore(int scoreToadd) {
         mTotalScore += scoreToadd;
     }
 
-    public int getsCore() {
+    public synchronized int getsCore() {
         return mTotalScore;
     }
 
